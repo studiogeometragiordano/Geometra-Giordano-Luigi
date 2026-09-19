@@ -2,5 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap:
-link sito
+https://studiogeometragiordano.github.io/Geometra-Giordano-Luigi/
 /sitemap.xml
