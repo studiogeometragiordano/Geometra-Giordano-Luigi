@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+Sitemap:
+link sito
+/sitemap.xml

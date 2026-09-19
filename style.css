@@ -1,0 +1,457 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+:root{
+    --ink: #1b2430;
+    --paper: #f6f4ef;
+    --surface: #ffffff;
+    --steel: #35566b;
+    --steel-dark: #223947;
+    --ochre:  #b8823c;
+    --line: #d8d3c7;
+    --muted: #6b675d;
+
+    --font-display: 'Darker Grotesque', sans-serif;
+    --font-body: 'IBM Plex Sans', sans-serif;
+
+    --max-width: 1120px;
+    --gutter: clamp(24px, 5vw, 64px);
+}
+
+/* ---------- Reset di base ---------- */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+body{
+    font-family: var(--font-body);
+    color: var(--ink);
+    background-color: var(--paper);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+ul{
+    list-style: none;
+}
+
+img{
+    max-width: 100%;
+    display: block;
+}
+
+:focus-visible{
+    outline: 2px solid var(--ochre);
+    outline-offset: 3px;
+}
+
+/* ---------- Layout condiviso ---------- */
+
+.containerHome,
+.containerHero,
+.serviceSection,
+.containerFooter{
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding-left: var(--gutter);
+    padding-right: var(--gutter);
+}
+
+/* HOME */
+.home{
+    padding: clamp(96px, 10vw, 160px) 0 clamp(56px, 8vw, 88px);
+    border-bottom: 1px solid var(--line);
+}
+
+.containerHome{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+}
+
+.title{
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2.8rem, 8vw, 5.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    position: relative;
+    padding-bottom: 22px;
+}
+
+/* linea di quota sotto al titolo */
+.title::after{
+    content:'';
+    position: absolute;
+    left: 4px;
+    bottom: 0;
+    width: min(360px, 60%);
+    height: 1px;
+    background: var(--steel);
+}
+
+.title::before{
+    content:'';
+    position: absolute;
+    left: 4px;
+    bottom: -4px;
+    width: 1px;
+    height: 9px;
+    background: var(--steel);
+}
+
+.contactBtn{
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    color: var(--paper);
+    background: var(--ink);
+    border: 1px solid var(--ink);
+    padding: 14px 30px;
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.contactBtn:hover,
+.contactBtn:focus-visible {
+  background: var(--steel);
+  border-color: var(--steel);
+}
+
+/* ABOUT / HERO */
+.hero{
+    padding: clamp(56px, 9vw, 96px) 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.containerHero{
+    display: flex;
+}
+
+.textHero{
+    max-width: 62ch;
+    font-size: 1.1rem;
+    color: var(--ink);
+    border-left: 2px solid var(--ochre);
+    padding-left: 28px;
+}
+
+/* SERVIZI */
+.serviceSection{
+    padding: clamp(56px, 9vw, 96px);
+    border-bottom: 1px solid var(--line);
+}
+
+.textContainer{
+    margin-bottom: 48px;
+    max-width: 52ch;
+}
+
+.titleServicePage{
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    color: var(--ink);
+    text-transform: uppercase;
+}
+
+.textServicePage{
+    color: var(--muted);
+    margin-top: 8px;
+    font-size: 1.05rem;
+}
+
+.serviceContainer{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid var(--line);
+    border-left: 1px solid var(--line);
+}
+
+.service{
+    padding: 32px 28px;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--surface);
+    transition: background 0.15s ease;
+}
+
+.service:hover{
+    background: var(--paper);
+}
+
+.serviceIcon{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 18px;
+    color: var(--steel);
+    font-size: 1.2rem;
+}
+
+.serviceTitle{
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--ink);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.serviceText{
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+
+@media (max-width: 860px) {
+  .serviceContainer {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .serviceContainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* CONTATTI */
+.contact {
+  padding: clamp(56px, 9vw, 96px);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.titleContactPage {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  text-transform: uppercase;
+  max-width: var(--max-width);
+  margin: 0 auto 40px;
+  padding-right: var(--gutter);
+}
+
+.containerContact {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: start;
+}
+
+.infoTitle {
+  font-size: 0.85rem;
+  color: var(--ochre);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 0.02em;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(246, 244, 239, 0.14);
+}
+
+.infoIcon {
+  color: var(--ochre);
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.textInfo {
+  font-size: 0.98rem;
+}
+
+.textInfo a {
+  transition: color 0.20s ease-in-out;
+}
+
+.textInfo a:hover,
+.textInfo a:focus-visible {
+  color: var(--ochre);
+}
+
+.orario b {
+  font-weight: 600;
+}
+
+.socialPart {
+  display: flex;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.socialPart a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(246, 244, 239, 0.25);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.socialPart a:hover,
+.socialPart a:focus-visible {
+  border-color: var(--ochre);
+  color: var(--ochre);
+}
+
+/* ---- Form ---- */
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.formText {
+  margin-bottom: 24px;
+}
+
+.formText p:first-child {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+
+.secondaryText {
+  color: rgba(246, 244, 239, 0.65);
+  font-size: 0.92rem;
+  margin-top: 6px;
+}
+
+.contactForm label {
+  font-size: 0.82rem;
+  color: rgba(246, 244, 239, 0.65);
+  margin-top: 16px;
+  margin-bottom: 6px;
+}
+
+.contactForm input,
+.contactForm textarea {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--paper);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(246, 244, 239, 0.3);
+  padding: 10px 2px;
+  transition: border-color 0.15s ease;
+}
+
+.contactForm input::placeholder,
+.contactForm textarea::placeholder {
+  color: rgba(246, 244, 239, 0.35);
+}
+
+.contactForm input:focus,
+.contactForm textarea:focus {
+  border-color: var(--ochre);
+  outline: none;
+}
+
+.contactForm textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.inviaBtn {
+  margin-top: 28px;
+  align-self: flex-start;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--paper);
+  padding: 14px 32px;
+  cursor: pointer;
+  transition: background 0.20s ease-in-out, color 0.20s ease-in-out;
+}
+
+.inviaBtn:hover,
+.inviaBtn:focus-visible {
+  background: var(--ochre);
+  border-color: var(--ochre);
+  color: var(--ink);
+}
+
+@media (max-width: 780px) {
+  .containerContact {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* FOOTER */
+.footer {
+  padding: 32px 0;
+}
+
+.containerFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.lista-link {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+
+.link a {
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  transition: color 0.15s ease;
+}
+
+.link a:hover,
+.link a:focus-visible {
+  color: var(--steel);
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+@media (max-width: 560px) {
+  .containerFooter {
+    align-items: flex-start;
+  }
+}
